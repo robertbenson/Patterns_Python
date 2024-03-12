@@ -1,7 +1,7 @@
 # Using Classes for encapsulation compared to global variables
 
-This is quick reference for using alternatives to global variables. 
-It is not a guide as to which pattern is the best.
+This is my quick reference for using alternatives to global variables. 
+It is not by any means a guide as to which pattern is the best.
 
 The choice between using classes and encapsulation versus global variables depends on the specific requirements and design principles of your code. 
 

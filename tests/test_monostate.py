@@ -2,7 +2,7 @@ import unittest
 from monostate import Monostate
 
 
-class MyTestCase(unittest.TestCase):
+class Borg_TestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.borg1 = Monostate()

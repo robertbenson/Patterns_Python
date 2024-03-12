@@ -2,7 +2,7 @@ import unittest
 from singleton import Singleton
 
 
-class MyTestCase(unittest.TestCase):
+class Singleton_TestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.s1 = Singleton.get_instance()

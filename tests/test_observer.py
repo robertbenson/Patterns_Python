@@ -3,7 +3,7 @@ from observer import ChannelPublisher
 from observer import Subscriber
 
 
-class MyTestCase(unittest.TestCase):
+class Observer_TestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         print("setUpClass")
@@ -21,11 +21,13 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(len(self.channelPublisher.subscribers), 2)
 
     def test_sequence(self):
-        """ register , unregister, notify"""
+        """ notify,
+        unregister ,
+        unregister,
+        notify"""
         self.channelPublisher.notify()
         self.channelPublisher.unregister(self.bob)
         self.assertEqual(len(self.channelPublisher.subscribers), 1)
-        subscribers = self.channelPublisher.subscribers
 
         for subscriber in self.channelPublisher.subscribers:
             self.assertEqual(subscriber.name, "FooBar")
@@ -38,7 +40,5 @@ class MyTestCase(unittest.TestCase):
         self.channelPublisher.unregister(self.FooBar)
         self.assertNotIn(self.FooBar, self.channelPublisher.subscribers)
 
-        # assert that no more subscibers are left
+        # verify that no more subscribers are left
         self.assertEqual(len(self.channelPublisher.subscribers), 0)
-
-
