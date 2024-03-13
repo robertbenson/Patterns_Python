@@ -64,19 +64,19 @@ class PizzaFactory:
 if __name__ == "__main__":
     # Creating a Margherita Pizza using the factory
     factory = PizzaFactory()
-    margherita_pizza = factory.create_pizza('Margherita')
+    pizza = factory.create_pizza('Margherita')
 
     # Using the created Margherita Pizza
-    margherita_pizza.prepare()
-    margherita_pizza.bake()
-    margherita_pizza.cut()
-    margherita_pizza.box()
+    pizza.prepare()
+    pizza.bake()
+    pizza.cut()
+    pizza.box()
 
     # Creating a Pepperoni Pizza using the factory
-    pepperoni_pizza = factory.create_pizza('Pepperoni')
+    pizza = factory.create_pizza('Pepperoni')
 
     # Using the created Pepperoni Pizza
-    pepperoni_pizza.prepare()
-    pepperoni_pizza.bake()
-    pepperoni_pizza.cut()
-    pepperoni_pizza.box()
+    pizza.prepare()
+    pizza.bake()
+    pizza.cut()
+    pizza.box()

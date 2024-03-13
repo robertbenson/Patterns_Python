@@ -42,15 +42,21 @@ it's essential to consider the specific requirements of your project.
 In some cases, using global variables might be appropriate, but it's crucial to be mindful of the potential drawbacks mentioned above. Striking a balance and following good design principles will contribute to more maintainable and scalable code.
 
 
-## Singleton pattern
+## Singleton Pattern
 
 
 The singleton pattern is a software design pattern that restricts the instantiation of a class to a singular instance. 
 One of the well-known "Gang of Four" design patterns. 
 A singleton implementation may use lazy initialization in which the instance is created when the static method is first invoked.
 
-## Monostate pattern
+## Monostate Pattern
 
 The monostate pattern will create instances or objects with their own identity that all share the same internal state. 
 It is often referred to as the Borg pattern in reference to The Borg in Star Trek. 
 While being individuals in their own right, they all share the same collective consciousness or shared state.
+
+## Factory Pattern
+
+The Factory Pattern is to define an interface for creating an object, but leave the choice of its type to the subclasses, 
+deferring the instantiation to the subclasses. Objects are created by calling a factory method 
+instead of calling a constructor.
