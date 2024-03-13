@@ -1,12 +1,11 @@
 # Define a Pizza interface
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 
-class Pizza:
+class Pizza(ABC):
     @abstractmethod
     def prepare(self):
         return "Concrete implementation required"
-
 
     @abstractmethod
     def bake(self):
@@ -19,6 +18,7 @@ class Pizza:
     @abstractmethod
     def box(self):
         pass
+
 
 # Concrete Pizza classes
 class MargheritaPizza(Pizza):
@@ -35,6 +35,7 @@ class MargheritaPizza(Pizza):
     def box(self):
         print("Boxing Margherita Pizza")
 
+
 class PepperoniPizza(Pizza):
     def prepare(self):
         print("Preparing Pepperoni Pizza")
@@ -48,17 +49,21 @@ class PepperoniPizza(Pizza):
     def box(self):
         print("Boxing Pepperoni Pizza")
 
+
 # Pizza Factory
 class PizzaFactory:
     """It creates and returns an instance of the appropriate subclass based
     on the pizza_type parameter."""
-    def create_pizza(self, pizza_type):
+
+    @staticmethod
+    def create_pizza(pizza_type):
         if pizza_type == 'Margherita':
             return MargheritaPizza()
         elif pizza_type == 'Pepperoni':
             return PepperoniPizza()
         else:
             raise ValueError("Invalid pizza type")
+
 
 # Client code
 if __name__ == "__main__":

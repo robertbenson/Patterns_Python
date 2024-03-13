@@ -11,20 +11,21 @@ class TestPizzaFactory(unittest.TestCase):
         pizza_factory = PizzaFactory()
         pizza = pizza_factory.create_pizza("Margherita")
         self.assertIsInstance(pizza, MargheritaPizza)
-        # Add more specific assertions related to MargheritaPizza creation if needed
+        # Add more specific assertions related to MargheritaPizza creation
+        # if needed
 
     def test_create_pepperoni_pizza(self):
         pizza_factory = PizzaFactory()
         pizza = pizza_factory.create_pizza("Pepperoni")
         self.assertIsInstance(pizza, PepperoniPizza)
-        # Add more specific assertions related to PepperoniPizza creation if needed
+        # Add more specific assertions related to PepperoniPizza creation if
+        # needed
 
-
-    def test_abstract_class_instantiation(self):
-        with self.assertRaises(Exception) as context:
-            abstract_instance= Pizza()
-            self.assertEqual(str(context.exception), "Concrete "
-                                                     "implementation required")
+    def test_instantiation_abtract_class_error(self):
+        with self.assertRaises(TypeError):
+            # Attempt to instantiate the abstract class, which should raise
+            # a TypeError
+            instance = Pizza()
 
 
 if __name__ == '__main__':
