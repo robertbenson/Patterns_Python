@@ -25,7 +25,7 @@ class TestPizzaFactory(unittest.TestCase):
         with self.assertRaises(TypeError):
             # Attempt to instantiate the abstract class, which should raise
             # a TypeError
-            instance = Pizza()
+            abstract_class = Pizza()
 
 
 if __name__ == '__main__':

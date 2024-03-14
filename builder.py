@@ -1,24 +1,34 @@
 # Product class
 class Computer:
-    def __init__(self, CPU, RAM, storage, GPU):
-        self.CPU = CPU
-        self.RAM = RAM
+    def __init__(self, cpu, ram, storage, gpu, screen):
+        self.CPU = cpu
+        self.RAM = ram
         self.storage = storage
-        self.GPU = GPU
+        self.GPU = gpu
+        self.Screen = screen
+
+    def __str__(self):
+        return (((f"\nHigh End Computer : " + str(self.CPU) +
+                  "," + str(self.RAM)) + ","
+                 + str(self.storage)) + ","
+                + str(self.Screen))
 
 
 # Builder interface
 class ComputerBuilder:
-    def build_CPU(self):
+    def build_cpu(self):
         pass
 
-    def build_RAM(self):
+    def build_ram(self):
         pass
 
     def build_storage(self):
         pass
 
-    def build_GPU(self):
+    def build_gpu(self):
+        pass
+
+    def build_screen(self):
         pass
 
     def get_computer(self):
@@ -29,22 +39,32 @@ class ComputerBuilder:
 class HighEndComputerBuilder(ComputerBuilder):
     def __init__(self):
         self.computer = Computer("Intel i9", "32GB", "1TB SSD",
-                                 "NVIDIA RTX 3090")
+                                 "NVIDIA Quadro",
+                                 screen="17 Inch touch screen")
 
-    def build_CPU(self):
+    def build_cpu(self):
         self.computer.CPU = "Intel i9"
 
-    def build_RAM(self):
+    def build_ram(self):
         self.computer.RAM = "64GB"
 
     def build_storage(self):
         self.computer.storage = "2TB SSD"
 
-    def build_GPU(self):
-        self.computer.GPU = "NVIDIA RTX 3090"
+    def build_gpu(self):
+        self.computer.GPU = "NVIDIA Quadro"
+
+    def build_screen(self):
+        self.computer.Screen = "17 Inch touch screen"
 
     def get_computer(self):
         return self.computer
+
+    def __str__(self):
+        return (((f"\nHigh End Computer : " + str(self.computer.CPU) +
+                  "," + str(self.computer.RAM)) + ","
+                 + str(self.computer.storage)) + ","
+                + str(self.computer.Screen))
 
 
 # Director
@@ -53,10 +73,11 @@ class ComputerDirector:
         self.builder = builder
 
     def construct_computer(self):
-        self.builder.build_CPU()
-        self.builder.build_RAM()
+        self.builder.build_cpu()
+        self.builder.build_ram()
         self.builder.build_storage()
-        self.builder.build_GPU()
+        self.builder.build_gpu()
+        self.builder.build_screen()
 
 
 # Client code
@@ -71,3 +92,4 @@ print(f"CPU: {computer.CPU}")
 print(f"RAM: {computer.RAM}")
 print(f"Storage: {computer.storage}")
 print(f"GPU: {computer.GPU}")
+print(f"Screen: {computer.Screen}")

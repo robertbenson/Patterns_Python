@@ -41,7 +41,6 @@ While classes and encapsulation are generally recommended,
 it's essential to consider the specific requirements of your project. 
 In some cases, using global variables might be appropriate, but it's crucial to be mindful of the potential drawbacks mentioned above. Striking a balance and following good design principles will contribute to more maintainable and scalable code.
 
-
 ## Singleton Pattern
 
 
@@ -55,8 +54,19 @@ The monostate pattern will create instances or objects with their own identity t
 It is often referred to as the Borg pattern in reference to The Borg in Star Trek. 
 While being individuals in their own right, they all share the same collective consciousness or shared state.
 
+## Other Useful Patterns
+
 ## Factory Pattern
 
 The Factory Pattern is to define an interface for creating an object, but leave the choice of its type to the subclasses, 
 deferring the instantiation to the subclasses. Objects are created by calling a factory method 
 instead of calling a constructor.
+
+## Builder Pattern
+
+The Builder Pattern is a creational design pattern used to construct complex objects step by step. 
+It separates the construction of a complex object from its representation. i.e. keep the process of putting 
+it together separate from how it's actually represented or used in the program. This way, the same 
+construction process can create different representations.
+Imagine you have an order for a new laptop. You will pick the processor, ram, screen size, memory , mouse, warranty and many other options.
+The builder pattern will allow for many different laptop variations.
