@@ -66,6 +66,36 @@ class HighEndComputerBuilder(ComputerBuilder):
                  + str(self.computer.storage)) + ","
                 + str(self.computer.Screen))
 
+class BudgetComputerBuilder(ComputerBuilder):
+    def __init__(self):
+        self.computer = Computer("Intel i3", "8GB", "250MB HD",
+                                 "NVIDIA",
+                                 screen="13 Inch")
+
+    def build_cpu(self):
+        self.computer.CPU = "Intel i3"
+
+    def build_ram(self):
+        self.computer.RAM = "8GB"
+
+    def build_storage(self):
+        self.computer.storage = "250MB HD"
+
+    def build_gpu(self):
+        self.computer.GPU = "NVIDIA"
+
+    def build_screen(self):
+        self.computer.Screen = "13 Inch"
+
+    def get_computer(self):
+        return self.computer
+
+    def __str__(self):
+        return (((f"\nHigh End Computer : " + str(self.computer.CPU) +
+                  "," + str(self.computer.RAM)) + ","
+                 + str(self.computer.storage)) + ","
+                + str(self.computer.Screen))
+
 
 # Director
 class ComputerDirector:
@@ -86,10 +116,25 @@ director = ComputerDirector(builder)
 director.construct_computer()
 computer = builder.get_computer()
 
-# Output
-print("Computer specs:")
-print(f"CPU: {computer.CPU}")
-print(f"RAM: {computer.RAM}")
-print(f"Storage: {computer.storage}")
-print(f"GPU: {computer.GPU}")
-print(f"Screen: {computer.Screen}")
+
+def print_spec(model: str, computer: Computer) -> None:
+    print(f"\nComputer specs: {model}")
+    print(f"CPU: {computer.CPU}")
+    print(f"RAM: {computer.RAM}")
+    print(f"Storage: {computer.storage}")
+    print(f"GPU: {computer.GPU}")
+    print(f"Screen: {computer.Screen}")
+
+
+# Output for a High End model
+print_spec("High End", computer)
+
+# Client code
+builder = BudgetComputerBuilder()
+director = ComputerDirector(builder)
+director.construct_computer()
+computer = builder.get_computer()
+
+# Output for a Budget model
+print_spec("Budget", computer)
+
